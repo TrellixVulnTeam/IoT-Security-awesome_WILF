@@ -1,4 +1,4 @@
-# IoT-Security-awesome [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+# awesome IoT Security [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 # Tools
 
@@ -9,6 +9,7 @@ git clone https://github.com/radareorg/radare2
 cd radare2
 sys/install.sh
 ```
+
 [ExplIoT](https://expliot.readthedocs.io/en/latest/)
 
 ```
@@ -131,7 +132,9 @@ mv firmware-analysis-toolkit/reset.py .
 chmod +x fat.py 
 chmod +x reset.py
 ```
+
 Adjust the paths to firmadyne and binwalk in fat.py and reset.py. Additionally, provide the root password. Firmadyne requires root privileges for some of its operations. The root password is provided in the script itself to automate the process.
+
 ```
 # Configurations - change this according to your system
 firmadyne_path = "/home/ec/firmadyne"
@@ -139,15 +142,18 @@ binwalk_path = "/usr/local/bin/binwalk"
 root_pass = "root"
 firmadyne_pass = "firmadyne"
 ```
+
 - Setting up Firmware-mod-Kit
 
 ```
 sudo apt-get install git build-essential zlib1g-dev liblzma-dev python-magic
 git clone https://github.com/brianpow/firmware-mod-kit.git
 ```
+
 Find the location of binwalk using which binwalk . Modify the file shared-ng.inc to change the value of variable BINWALK to the value of /usr/local/bin/binwalk (if that is where your binwalk is installed). .
 
 - Setting up MITMProxy
+
 ```
 pip install mitmproxy or apt-get install mitmproxy
 ```
@@ -164,6 +170,7 @@ git clone https://github.com/craigz28/firmwalker.git
 python fat.py <firmware file>
 
 ```
+
 - Provide the firmware filename as an argument to the script. If not provided, the script would prompt for it at runtime.
 
 - The script will then ask you to enter the brand name. Enter the brand which the firmware belongs to. This is for pure database storage and categorisational purposes.
@@ -176,7 +183,7 @@ python fat.py <firmware file>
 
 To remove all analyzed firmware images, run
 
-``` 
+```
 python reset.py 
 ```
 
@@ -205,6 +212,7 @@ git clone https://github.com/slimm609/checksec.sh
 sudo apt-get install busybox-static fakeroot git dmsetup kpartx netcat-openbsd nmap python-psycopg2 python3-psycopg2 snmp uml-utilities util-linux vlan
 git clone --recursive https://github.com/firmadyne/firmadyne.git
 ```
+
 Install Binwalk
 
 ```
@@ -248,6 +256,7 @@ USAGE
 ```
 wget http://www.downloads.netgear.com/files/GDC/WNAP320/WNAP320%20Firmware%20Version%202.0.3.zip
 ```
+
 - Use the extractor to recover only the filesystem, no kernel (-nk), no parallel operation (-np), populating the image table in the SQL server at 127.0.0.1 (-sql) with the Netgear brand (-b), and storing the tarball in images
 
 ```
@@ -255,11 +264,13 @@ wget http://www.downloads.netgear.com/files/GDC/WNAP320/WNAP320%20Firmware%20Ver
 ```
 
 - Identify the architecture of firmware 1 and store the result in the image table of the database.
+
 ```
 ./scripts/getArch.sh ./images/1.tar.gz
 ```
 
 - Load the contents of the filesystem for firmware 1 into the database, populating the object and object_to_image tables.
+
 ```
 /scripts/tar2db.py -i 1 -f ./images/1.tar.gz
 ```
@@ -349,6 +360,7 @@ sudo apt-get install qemu
 [Apktool](https://ibotpeaches.github.io/Apktool/)
 
 #### Network
+
 [MitmProxy](https://mitmproxy.org/)
 
 ```
@@ -402,6 +414,7 @@ sudo apt-get install openocd
 ```
 
 [Flashrom](https://www.flashrom.org/Flashrom)
+
 ```
 sudo apt-get install flashrom
 ```
@@ -410,12 +423,15 @@ sudo apt-get install flashrom
 
 [ubi_reader](https://github.com/jrspruitt/ubi_reader)
 UBI Reader is a Python module and collection of scripts capable of extracting the contents of UBI and UBIFS images, along with analyzing these images to determine the parameter settings to recreate them using the mtd-utils tools.
+
 ```
 sudo apt-get install liblzo2-dev
 sudo pip install python-lzo
 
 ```
+
 Latest Version
+
 ```
 git clone https://github.com/jrspruitt/ubi_reader
 cd ubi_reader
@@ -425,7 +441,9 @@ OR
 
 wget https://github.com/crmulliner/ubi_reader/archive/master.zip -O ubireader.zip && unzip ubireader.zip && cd ubi_reader-master && python setup.py install
 ```
+
 Or
+
 ```
 sudo pip install ubi_reader
 ```
@@ -435,6 +453,7 @@ sudo pip install ubi_reader
 ```
 sudo apt-get install u-boot-tools
 ```
+
 [elfutils](https://installlion.com/kali/kali/main/e/elfutils/index.html)
 
 ```
@@ -447,17 +466,20 @@ sudo apt-get install elfutils
 sudo apt-get install pax-utils
 
 ```
+
 [prelink](https://installlion.com/kali/kali/main/p/prelink/install/index.html)
 
 ```
 sudo apt-get install prelink
 
 ```
+
 [lddtree]
 
 ```
 Already installed
 ```
+
 [mtools,etools,squashfs-tools,cpio]
 
 ```
@@ -467,10 +489,10 @@ apt install e2tools mtools file squashfs-tools unzip python-setuptools cpio
 
 ## References Tools
 
-- https://github.com/V33RU/IoTSecurity101
-- https://github.com/adi0x90/attifyos
-- https://github.com/scriptingxss/EmbedOS
-- https://medium.com/@airman604/installing-docker-in-kali-linux-2017-1-fbaa4d1447fe
+- <https://github.com/V33RU/IoTSecurity101>
+- <https://github.com/adi0x90/attifyos>
+- <https://github.com/scriptingxss/EmbedOS>
+- <https://medium.com/@airman604/installing-docker-in-kali-linux-2017-1-fbaa4d1447fe>
 
 # Firmware
 
@@ -478,7 +500,7 @@ apt install e2tools mtools file squashfs-tools unzip python-setuptools cpio
 - [IoTGoat](https://github.com/scriptingxss/IoTGoat)
 
 # OS
+
 - [EmbedOS](https://github.com/scriptingxss/EmbedOS)
 - [AttifyOs](https://github.com/adi0x90/attifyos)
 - [Kali](https://www.kali.org/)
-
